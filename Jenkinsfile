@@ -2,7 +2,7 @@ pipeline{
     agent any
     environment{
         NEW_VERSION = '1.1'
-        BRANCH_NAME = "${scm.branches[0].name}"
+        BRANCH_NAME = "${scm.branches[0].name}".split('/')[1]
     }
     stages{
         stage("build"){
