@@ -2,14 +2,14 @@ pipeline{
     agent any
     environment{
         NEW_VERSION = '1.1'
-        env.BRANCH_NAME = scm.branches[0].name
+        BRANCH_NAME = scm.branches[0].name
     }
     stages{
         stage("build"){
             steps{
                 echo "Start build"
                 echo "========stage build - steps ========"
-                echo "env.BRANCH_NAME is ${env.BRANCH_NAME}"
+                echo "BRANCH_NAME is ${BRANCH_NAME}"
                 echo "End of build"
             }
         }
