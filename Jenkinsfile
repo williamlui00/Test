@@ -2,10 +2,15 @@ pipeline{
     agent any
     environment{
         NEW_VERSION = '1.1'
-        BRANCH_NAME = "${scm.branches[0].name}".split('/')[1]
+        BRANCH_NAME = "${scm.branches[0].name}"
     }
     stages{
         stage("build"){
+            when{
+                expression {
+                    BRANCH_NAME =~ "main"
+                }
+            }
             steps{
                 echo "Start build"
                 echo "========stage build - steps ========"
