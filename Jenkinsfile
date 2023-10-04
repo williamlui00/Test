@@ -11,9 +11,6 @@ pipeline{
             steps{
                 echo "========stage build - steps ========"
             }
-            steps{
-                echo "========stage build - steps-2 ========"
-            }
         }
         stage("test"){
             steps{
