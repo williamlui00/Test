@@ -11,20 +11,24 @@ pipeline{
                 }
             }
             steps{
-                echo "Start to build"
+                echo "Start build"
                 echo "========stage build - steps ========"
                 echo "End of build"
             }
         }
         stage("test"){
             steps{
+                echo "Start test"
                 echo "========stage test - steps ========"
+                echo "End of test"
             }
         }
         stage("deploy"){
             steps{
+                echo "Start deploy"
                 echo "========stage deploy - steps ========"
                 echo "The new version is ${NEW_VERSION}"
+                echo "end of deploy"
             }
         }
     }
