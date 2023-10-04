@@ -2,6 +2,7 @@ pipeline{
     agent any
     environment{
         NEW_VERSION = '1.1'
+        env.BRANCH_NAME = env.BRANCH_NAME = scm.branches[0].name
     }
     stages{
         stage("build"){
