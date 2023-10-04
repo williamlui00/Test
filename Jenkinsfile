@@ -11,7 +11,9 @@ pipeline{
                 }
             }
             steps{
+                echo "Start to build"
                 echo "========stage build - steps ========"
+                echo "End of build"
             }
         }
         stage("test"){
