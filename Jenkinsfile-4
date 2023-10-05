@@ -1,7 +1,7 @@
  def gs
 
  pipeline{
-     agent nono
+     agent none
      stages{
 
         stage("Include Groovy Script"){
