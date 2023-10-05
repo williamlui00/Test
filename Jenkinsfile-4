@@ -5,6 +5,7 @@
      stages{
 
         stage("Include Groovy Script"){
+            agent any
             steps{
                 script{
                     gs = load "jenkins.groovy"
@@ -13,6 +14,7 @@
         }
 
         stage("Confire Build"){
+            agent any
             steps{
                 script{
                     gs.confirmBuild()
