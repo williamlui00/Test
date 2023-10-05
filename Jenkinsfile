@@ -16,7 +16,7 @@ pipeline{
                 message 'Do you want to continue with the build?'
                 ok "Done"
                 parameters {
-                    choice(name: confirmBuild, choices: ['yes','no'], description)
+                    choice(name: 'confirmBuild', choices: ['yes','no'], description: '')
                 }
             }
             steps {
