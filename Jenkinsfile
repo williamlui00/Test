@@ -9,7 +9,7 @@ pipeline{
         stage('confirm build'){
             steps {
                 script {
-                    if (env.BRANCH_NAME =~ 'main') {
+                    if (BRANCH_NAME =~ 'main') {
                         input(
                             id: 'confirmBuild',
                             message: 'Do you want to continue with the build?',
