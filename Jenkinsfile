@@ -15,6 +15,7 @@ pipeline{
                 echo "Start build"
                 echo "========stage build - steps ========"
                 echo "BRANCH_NAME is ${BRANCH_NAME}"
+                echo "GIT_BRANCH is ${GIT_BRANCH}"
                 echo "End of build"
             }
         }
