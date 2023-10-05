@@ -10,13 +10,7 @@ pipeline{
             steps {
                 script {
                     if (GIT_BRANCH == 'origin/main') {
-                        input(
-                            id: 'confirmBuild',
-                            message: 'Do you want to continue with the build?',
-                            parameters: [
-                                [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Continue build?']
-                            ]
-                        )
+                        input(id: 'confirmBuild', message: 'Do you want to continue with the build?', parameters: [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Continue build?'])
                         if (!env.confirmBuild) {
                             error('Build aborted by user')
                         }
