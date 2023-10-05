@@ -1,3 +1,4 @@
+def gv
 pipeline{
     agent any
     environment{
@@ -5,6 +6,13 @@ pipeline{
         BRANCH_NAME = "${scm.branches[0].name}"
     }
     stages{
+        stage("init"){
+            stages{
+                script{
+                    gv = load "jenkins.groovy"
+                }
+            }
+        }
         stage("build"){
             when{
                 expression {
@@ -16,6 +24,9 @@ pipeline{
                 echo "========stage build - steps ========"
                 echo "BRANCH_NAME is ${BRANCH_NAME}"
                 echo "GIT_BRANCH is ${GIT_BRANCH}"
+                script{
+                    gv.buildapp()
+                }
                 echo "End of build"
             }
         }
