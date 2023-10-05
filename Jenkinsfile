@@ -6,6 +6,24 @@ pipeline{
         BRANCH_NAME = "${scm.branches[0].name}"
     }
     stages{
+        stage('confirm build'){
+            steps {
+                script {
+                    if (env.BRANCH_NAME =~ 'main') {
+                        input(
+                            id: 'confirmBuild',
+                            message: 'Do you want to continue with the build?',
+                            parameters: [
+                                [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Continue build?']
+                            ]
+                        )
+                        if (!env.confirmBuild) {
+                            error('Build aborted by user')
+                        }
+                    }
+                }
+            }
+        }
         stage("init"){
             steps{
                 script{
