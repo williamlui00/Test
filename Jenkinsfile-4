@@ -7,7 +7,7 @@
         stage("Include Groovy Script"){
             steps{
                 script{
-                    gv = load "jenkins.groovy"
+                    gs = load "jenkins.groovy"
                 }
              }
         }
