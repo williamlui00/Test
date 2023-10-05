@@ -11,10 +11,11 @@ pipeline{
                 }
             }
         }
-        stage("Build")
+        stage("Build"){
             agent any
             steps{
                 echo "====>> Building"
             }
+        }
     }
 }
