@@ -1,11 +1,10 @@
  def gs
 
  pipeline{
-     agent none
+     agent any
      stages{
 
         stage("Include Groovy Script"){
-            agent any
             steps{
                 script{
                     gs = load "jenkins.groovy"
@@ -14,7 +13,6 @@
         }
 
         stage("Confire Build"){
-            agent any
             steps{
                 script{
                     gs.confirmBuild()
@@ -23,7 +21,6 @@
          }
       
         stage("Build Stage"){
-            agent any
             steps{
                 script{
                     gs.buildApp()
@@ -32,7 +29,6 @@
          }
          
          stage("Test Stage"){
-            agent any
             steps{
                 script{
                     gs.testApp()
@@ -41,7 +37,6 @@
          }
 
          stage("Deploy Stage"){
-            agent any
             steps{
                 script{
                     gs.deployApp()
