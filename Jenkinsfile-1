@@ -1,0 +1,20 @@
+pipeline{
+    agent none
+    stages{
+        stage("Confirm Build"){
+            steps{
+                script{
+                    input(
+                        message: 'Please confirm continue building!!',
+                        ok: 'Continue'
+                    )
+                }
+            }
+        }
+        stage("Build")
+            agent any
+            steps{
+                echo "====>> Building"
+            }
+    }
+}
