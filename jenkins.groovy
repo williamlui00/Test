@@ -1,5 +1,17 @@
-def buildapp(){
-    echo "***** Groovy function build app *****"
+def confirmBuild(){
+    echo "====> Build confirmed"
+}
+
+def buildApp(){
+    echo "====> Building app"
+}
+
+def testApp(){
+    echo "====> Testing app"
+}
+
+def deployApp(){
+    echo "====> Deploying app"
 }
 
 return this

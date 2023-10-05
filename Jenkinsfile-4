@@ -1,1 +1,62 @@
- 
+ def gs
+
+ pipeline{
+     agent nono
+     stages{
+
+        stage("Include Groovy Script"){
+            steps{
+                script{
+                    gv = load "jenkins.groovy"
+                }
+             }
+        }
+
+        stage("Confire Build"){
+            steps{
+                script{
+                    gs.confirmBuild()
+                }
+             }
+         }
+      
+        stage("Build Stage"){
+            agent any
+            steps{
+                script{
+                    gs.buildApp()
+                }
+             }
+         }
+         
+         stage("Test Stage"){
+            agent any
+            steps{
+                script{
+                    gs.testApp()
+                }
+             }
+         }
+
+         stage("Deploy Stage"){
+            agent any
+            steps{
+                script{
+                    gs.deployApp()
+                }
+             }
+         }
+
+     }
+     post{
+         always{
+             echo "========always========"
+         }
+         success{
+             echo "========pipeline executed successfully ========"
+         }
+         failure{
+             echo "========pipeline execution failed========"
+         }
+     }
+ }
