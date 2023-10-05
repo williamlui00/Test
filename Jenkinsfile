@@ -21,7 +21,7 @@ pipeline{
             }
             steps {
                 script {
-                        if (!env.confirmBuild) {
+                        if (confirmBuild == 'no') {
                             error('Build aborted by user')
                     }
                 }
