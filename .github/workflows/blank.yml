@@ -14,5 +14,6 @@ jobs:
         run: echo Hello, world!
       - name: Run a multi-line script
         run: |
+          wget https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
           echo Add other actions to build,
           echo test, and deploy your project.
