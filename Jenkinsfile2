@@ -1,0 +1,18 @@
+node{
+  agent(any)
+  stage("Build"){
+    script{
+      echo "This is build stage"
+    }
+  }
+  stage("Test"){
+    script{
+      echo "This is test stage"
+    }
+  }
+  stage("deploy"){
+    script{
+      echo "This is deploy stage"
+    }
+  }
+}
