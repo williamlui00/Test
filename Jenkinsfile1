@@ -1,0 +1,44 @@
+def userInput(){
+  def userInput
+  while (true) {
+    userInput = input(
+      id: "USERINPUT",
+      message: "Please provide the input: ",
+      parameters: [
+        string(
+          name : "USERNAME",
+          defaultValue : "",
+          description : "Please input a username: "
+        ),
+        choice(
+          name : "ACTION",
+          description : "Please select an action: ",
+          choices : [
+            "Add",
+            "Delete",
+            "Modify"
+          ]
+        )
+      ]
+    )
+    if (userInput["USERNAME"].trim()) {
+      break
+    } else {
+      echo "The username can't be empty. Please re-input a username."
+    }
+  }
+  return userInput
+}
+
+node {
+  stage ("User Input"){
+    step{
+      def inputValues = userInput()
+      def username = inputValues["USERNAME"]
+      def action = inputValues["ACTION"]
+
+      echo "The user is ${username}."
+      echo "The selected action is ${action}"
+    }
+  }
+}
