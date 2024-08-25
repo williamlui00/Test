@@ -32,13 +32,11 @@ def userInput(){
 
 node {
   stage ("User Input"){
-    step{
       def inputValues = userInput()
       def username = inputValues["USERNAME"]
       def action = inputValues["ACTION"]
 
       echo "The user is ${username}."
       echo "The selected action is ${action}"
-    }
   }
 }
